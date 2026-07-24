@@ -28,73 +28,78 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Contact form (front-end only demo)
-  var form = document.getElementById('contact-form');
-  var note = document.getElementById('form-note');
-  if (form && note) {
+  // ---- Form handling via Formspree ----
+  // Both the contact form and the testimonial form POST to Formspree,
+  // which emails the submission to the property owner. Each <form> carries
+  // its own endpoint in its `action` attribute (see the HTML). Until a real
+  // Formspree ID is filled in, submissions show a setup reminder instead.
+  var PLACEHOLDER = 'YOUR_FORMSPREE_ID';
+
+  function handleFormspreeForm(formId, noteId, successMsg) {
+    var form = document.getElementById(formId);
+    var note = document.getElementById(noteId);
+    if (!form || !note) return;
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      note.textContent = "Thanks! We've received your message and will get back to you within one business day.";
+      var endpoint = form.getAttribute('action') || '';
+
+      // Not configured yet — don't pretend it sent.
+      if (endpoint.indexOf(PLACEHOLDER) !== -1) {
+        note.textContent = 'This form isn’t connected yet. (Owner: add your Formspree form ID to activate email delivery.)';
+        note.classList.add('visible');
+        return;
+      }
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+      note.textContent = 'Sending…';
       note.classList.add('visible');
-      form.reset();
-    });
-  }
 
-  // Testimonial submission (stored locally in this browser)
-  var testimonialForm = document.getElementById('testimonial-form');
-  var testimonialNote = document.getElementById('testimonial-note');
-  var testimonialList = document.getElementById('testimonial-list');
-  var STORAGE_KEY = 'lilics-testimonials';
-
-  function initials(name) {
-    return name.trim().charAt(0).toUpperCase() || '?';
-  }
-
-  function renderTestimonials() {
-    if (!testimonialList) return;
-    var stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    testimonialList.innerHTML = '';
-    stored.slice().reverse().forEach(function (t) {
-      var card = document.createElement('div');
-      card.className = 'testimonial';
-      card.innerHTML =
-        '<p class="quote">"' + t.message + '"</p>' +
-        '<div class="author">' +
-        '<div class="avatar">' + initials(t.name) + '</div>' +
-        '<div><strong>' + t.name + '</strong>' +
-        '<span>' + t.unit + ' &middot; ' + '★'.repeat(Number(t.rating)) + '</span></div>' +
-        '</div>';
-      testimonialList.appendChild(card);
-    });
-    var emptyMsg = document.getElementById('testimonial-empty');
-    if (emptyMsg) {
-      emptyMsg.style.display = stored.length ? 'none' : 'block';
-    }
-  }
-
-  function escapeHtml(str) {
-    var div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-  }
-
-  if (testimonialForm && testimonialNote) {
-    renderTestimonials();
-    testimonialForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      stored.push({
-        name: escapeHtml(document.getElementById('t-name').value),
-        unit: document.getElementById('t-unit').value,
-        rating: document.getElementById('t-rating').value,
-        message: escapeHtml(document.getElementById('t-message').value)
+      fetch(endpoint, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          note.textContent = successMsg;
+          form.reset();
+        } else {
+          response.json().then(function (data) {
+            var msg = (data && data.errors)
+              ? data.errors.map(function (er) { return er.message; }).join(', ')
+              : 'Something went wrong. Please try again or contact us directly.';
+            note.textContent = msg;
+          }).catch(function () {
+            note.textContent = 'Something went wrong. Please try again or contact us directly.';
+          });
+        }
+      }).catch(function () {
+        note.textContent = 'Network error. Please check your connection and try again.';
+      }).then(function () {
+        if (submitBtn) submitBtn.disabled = false;
       });
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(stored));
-      renderTestimonials();
-      testimonialNote.textContent = 'Thank you for sharing your experience!';
-      testimonialNote.classList.add('visible');
-      testimonialForm.reset();
     });
+  }
+
+  handleFormspreeForm(
+    'contact-form',
+    'form-note',
+    'Thanks! We’ve received your message and will get back to you within one business day.'
+  );
+
+  handleFormspreeForm(
+    'testimonial-form',
+    'testimonial-note',
+    'Thank you for sharing your experience! Your remarks have been sent and will be posted after a quick review.'
+  );
+
+  // Hide the "no remarks yet" note once approved testimonials are present
+  var testimonialList = document.getElementById('testimonial-list');
+  var testimonialEmpty = document.getElementById('testimonial-empty');
+  if (testimonialList && testimonialEmpty) {
+    var hasPublished = testimonialList.querySelector('.testimonial');
+    testimonialEmpty.style.display = hasPublished ? 'none' : 'block';
   }
 
   // Footer year

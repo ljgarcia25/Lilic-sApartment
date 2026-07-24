@@ -40,8 +40,19 @@
 
     <section class="alt-bg">
       <div class="container">
-        <div id="testimonial-list" class="grid grid-3" style="margin-bottom: 40px;"></div>
-        <p id="testimonial-empty" class="text-center" style="color: var(--brown);">No remarks yet — be the first to share your experience below!</p>
+        <div id="testimonial-list" class="grid grid-3" style="margin-bottom: 40px;">
+          <!-- Approved tenant remarks are added here. Copy a .testimonial block from an
+               emailed submission you'd like to publish. Example:
+          <div class="testimonial">
+            <p class="quote">"Great place to stay, very responsive management."</p>
+            <div class="author">
+              <div class="avatar">J</div>
+              <div><strong>Juan D.</strong><span>1 Bedroom &middot; ★★★★★</span></div>
+            </div>
+          </div>
+          -->
+        </div>
+        <p id="testimonial-empty" class="text-center" style="color: var(--brown);">No remarks published yet — be the first to share your experience below!</p>
       </div>
     </section>
 
@@ -51,7 +62,9 @@
           <h2>Share Your Stay</h2>
           <p>Tell future tenants what it's been like living at Lilic's Apartment.</p>
         </div>
-        <form class="contact-form" id="testimonial-form" style="max-width: 640px; margin: 0 auto;">
+        <form class="contact-form" id="testimonial-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" style="max-width: 640px; margin: 0 auto;">
+          <input type="hidden" name="_subject" value="New tenant testimonial from Lilic's Apartment website">
+          <input type="hidden" name="form-type" value="Testimonial">
           <div class="form-row">
             <div class="field">
               <label for="t-name">Your Name</label>
