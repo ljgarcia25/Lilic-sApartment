@@ -1,15 +1,22 @@
 /* ===== Lilic's Apartment — shared styles ===== */
 
 :root {
-  --terracotta: #c1653a;
-  --terracotta-dark: #a34f2a;
-  --cream: #faf3ea;
-  --cream-dark: #f0e4d3;
-  --charcoal: #2e2a26;
-  --brown: #5c4a3a;
-  --sage: #8a9a7e;
+  /* Primary accent (buttons, links) — warm orange */
+  --terracotta: #e8792b;
+  --terracotta-dark: #c9631d;
+  /* Secondary accent — green */
+  --sage: #3a8a55;
+  --sage-dark: #2c6b41;
+  /* Tertiary accent — red */
+  --red: #d23a34;
+  --red-dark: #ab2a25;
+  /* Neutrals */
+  --cream: #f4f8f3;
+  --cream-dark: #e2ede2;
+  --charcoal: #26302a;
+  --brown: #4d5a50;
   --white: #ffffff;
-  --shadow: 0 10px 30px rgba(46, 42, 38, 0.08);
+  --shadow: 0 10px 30px rgba(38, 48, 42, 0.10);
   --radius: 14px;
   --max-width: 1140px;
   --font-heading: 'Georgia', 'Times New Roman', serif;
@@ -189,8 +196,9 @@ p {
   position: relative;
   padding: 100px 0 110px;
   background:
-    radial-gradient(circle at 15% 20%, rgba(193, 101, 58, 0.18), transparent 45%),
-    radial-gradient(circle at 85% 80%, rgba(138, 154, 126, 0.22), transparent 50%),
+    radial-gradient(circle at 15% 20%, rgba(232, 121, 43, 0.18), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(58, 138, 85, 0.22), transparent 50%),
+    radial-gradient(circle at 55% 90%, rgba(210, 58, 52, 0.12), transparent 45%),
     linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
   overflow: hidden;
 }
@@ -209,7 +217,7 @@ p {
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--terracotta-dark);
-  background: rgba(193, 101, 58, 0.12);
+  background: rgba(232, 121, 43, 0.14);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 18px;
@@ -238,7 +246,7 @@ p {
   position: relative;
   height: 380px;
   border-radius: 24px;
-  background: linear-gradient(135deg, #d98a5e 0%, var(--terracotta) 45%, var(--sage) 100%);
+  background: linear-gradient(135deg, var(--sage) 0%, var(--terracotta) 55%, var(--red) 100%);
   box-shadow: var(--shadow);
   overflow: hidden;
 }
@@ -396,7 +404,7 @@ section {
 
 .unit-photo {
   height: 190px;
-  background: linear-gradient(135deg, var(--sage), var(--terracotta));
+  background: linear-gradient(135deg, var(--sage) 0%, var(--terracotta) 60%, var(--red) 100%);
   position: relative;
 }
 
@@ -518,7 +526,7 @@ section {
 /* ===== CTA Banner ===== */
 
 .cta-banner {
-  background: linear-gradient(120deg, var(--terracotta-dark), var(--terracotta));
+  background: linear-gradient(120deg, var(--sage-dark) 0%, var(--terracotta) 70%, var(--red) 100%);
   color: var(--white);
   border-radius: 24px;
   padding: 56px 48px;
@@ -559,7 +567,7 @@ section {
 .about-art {
   height: 420px;
   border-radius: 24px;
-  background: linear-gradient(160deg, var(--sage), var(--cream-dark) 60%, var(--terracotta));
+  background: linear-gradient(160deg, var(--sage) 0%, var(--cream-dark) 55%, var(--terracotta) 85%, var(--red) 100%);
   box-shadow: var(--shadow);
 }
 
