@@ -105,41 +105,43 @@
     <section>
       <div class="container">
         <div class="section-head">
-          <h2>What our residents say</h2>
-          <p>We're proud of the community we've built — here's some of the feedback we've received.</p>
+          <h2>Share Your Stay</h2>
+          <p>We're just getting started collecting stories from our residents — be the first to share what your stay with us has been like.</p>
         </div>
-        <div class="grid grid-3">
-          <div class="testimonial">
-            <p class="quote">"Moving in was effortless and the management team has been responsive from day one. It genuinely feels like home."</p>
-            <div class="author">
-              <div class="avatar">M</div>
-              <div>
-                <strong>Maria S.</strong>
-                <span>Resident since 2023</span>
-              </div>
+        <div id="testimonial-list" class="grid grid-3" style="margin-bottom: 40px;"></div>
+        <form class="contact-form" id="testimonial-form" style="max-width: 640px; margin: 0 auto;">
+          <div class="form-row">
+            <div class="field">
+              <label for="t-name">Your Name</label>
+              <input type="text" id="t-name" name="name" placeholder="Jane Doe" required>
+            </div>
+            <div class="field">
+              <label for="t-unit">Unit Type</label>
+              <select id="t-unit" name="unit">
+                <option>Studio</option>
+                <option>1 Bedroom</option>
+                <option>2 Bedroom (w/o Balcony)</option>
+                <option>2 Bedroom (with Balcony)</option>
+              </select>
             </div>
           </div>
-          <div class="testimonial">
-            <p class="quote">"The courtyard and the location sold me instantly. Everything I need is a short walk away."</p>
-            <div class="author">
-              <div class="avatar">J</div>
-              <div>
-                <strong>James O.</strong>
-                <span>Resident since 2022</span>
-              </div>
-            </div>
+          <div class="field">
+            <label for="t-rating">Rating</label>
+            <select id="t-rating" name="rating">
+              <option value="5">★★★★★ Excellent</option>
+              <option value="4">★★★★☆ Great</option>
+              <option value="3">★★★☆☆ Good</option>
+              <option value="2">★★☆☆☆ Fair</option>
+              <option value="1">★☆☆☆☆ Poor</option>
+            </select>
           </div>
-          <div class="testimonial">
-            <p class="quote">"Maintenance requests get handled fast, and the unit is quiet and well-kept. Highly recommend."</p>
-            <div class="author">
-              <div class="avatar">A</div>
-              <div>
-                <strong>Aisha K.</strong>
-                <span>Resident since 2024</span>
-              </div>
-            </div>
+          <div class="field">
+            <label for="t-message">Your Remarks</label>
+            <textarea id="t-message" name="message" placeholder="Tell us about your stay..." required></textarea>
           </div>
-        </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit Your Remarks</button>
+          <p class="form-note" id="testimonial-note"></p>
+        </form>
       </div>
     </section>
 
