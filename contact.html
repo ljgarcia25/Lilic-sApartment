@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Lilic's Apartment</title>
+  <meta name="description" content="Get in touch with Lilic's Apartment to schedule a tour, ask about availability, or get help with your lease.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        Lilic's Apartment
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="rentals.html">Rentals</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 70px 0 60px;">
+      <div class="container">
+        <span class="eyebrow">Get In Touch</span>
+        <h1 style="font-size: 2.6rem; max-width: 20ch;">We'd love to hear from you.</h1>
+        <p class="lead">Questions about availability, pricing, or a tour? Send us a message and we'll respond within one business day.</p>
+      </div>
+    </section>
+
+    <section class="alt-bg">
+      <div class="container contact-grid">
+
+        <form class="contact-form" id="contact-form">
+          <h2 style="margin-bottom: 20px;">Send a message</h2>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+            </div>
+            <div class="field">
+              <label for="interest">I'm Interested In</label>
+              <select id="interest" name="interest">
+                <option>Studio</option>
+                <option>1 Bedroom</option>
+                <option>2 Bedroom</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us a bit about what you're looking for..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+          <p class="form-note" id="form-note"></p>
+        </form>
+
+        <div>
+          <div class="info-card">
+            <div class="icon">📍</div>
+            <div>
+              <h4>Address</h4>
+              <p>123 Maple Street, Springfield, ST 00000</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="icon">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <p>(555) 123-4567</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p>hello@lilicsapartment.com</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="icon">🕒</div>
+            <div>
+              <h4>Office Hours</h4>
+              <p>Mon–Fri: 9am–6pm &nbsp;|&nbsp; Sat: 10am–3pm</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Frequently asked questions</h2>
+          <p>Quick answers to the questions we hear most often.</p>
+        </div>
+        <div style="max-width: 760px; margin: 0 auto;">
+          <div class="faq-item open">
+            <button class="faq-question">
+              What's required to apply?
+              <span class="plus">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>A completed application, proof of income (roughly 3x monthly rent), a valid ID, and a $40 application fee per adult applicant.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Are pets allowed?
+              <span class="plus">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes — cats and dogs under 40 lbs are welcome in most units with a refundable pet deposit and a small monthly pet rent.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              How long are lease terms?
+              <span class="plus">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We offer 6-month, 12-month, and month-to-month leases depending on the unit — ask us which options are available for a specific listing.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Is parking included?
+              <span class="plus">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Most units include one reserved covered parking spot. Additional spots may be available for a small monthly fee, subject to availability.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              How do I schedule a tour?
+              <span class="plus">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Send us a message using the form above or call our office — we offer in-person and virtual tours, seven days a week.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span class="brand-mark">L</span>
+            Lilic's Apartment
+          </div>
+          <p>Cozy, well-appointed rentals in a prime location, managed by people who care.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="rentals.html">Rentals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>123 Maple Street, Springfield</li>
+            <li>(555) 123-4567</li>
+            <li>hello@lilicsapartment.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Lilic's Apartment. All rights reserved.</span>
+        <span>Made with care for our residents.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
