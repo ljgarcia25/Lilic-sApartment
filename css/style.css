@@ -330,6 +330,10 @@ section {
   gap: 28px;
 }
 
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .grid-3 {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -842,6 +846,7 @@ section {
     height: 280px;
   }
 
+  .grid-4,
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -894,6 +899,7 @@ section {
     font-size: 2.2rem;
   }
 
+  .grid-4,
   .grid-3,
   .grid-2,
   .form-row,
