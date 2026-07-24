@@ -66,6 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
         '</div>';
       testimonialList.appendChild(card);
     });
+    var emptyMsg = document.getElementById('testimonial-empty');
+    if (emptyMsg) {
+      emptyMsg.style.display = stored.length ? 'none' : 'block';
+    }
   }
 
   function escapeHtml(str) {

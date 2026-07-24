@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials — Lilic's Apartment</title>
+  <meta name="description" content="Read what tenants have to say about their stay at Lilic's Apartment, and share your own experience.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        Lilic's Apartment
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="rentals.html">Rentals</a></li>
+        <li><a href="testimonials.html" class="active">Testimonials</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 70px 0 60px;">
+      <div class="container">
+        <span class="eyebrow">Resident Voices</span>
+        <h1 style="font-size: 2.6rem; max-width: 20ch;">Hear from the people who live here.</h1>
+        <p class="lead">We're just getting started collecting stories from our residents — be the first to share what your stay with us has been like.</p>
+      </div>
+    </section>
+
+    <section class="alt-bg">
+      <div class="container">
+        <div id="testimonial-list" class="grid grid-3" style="margin-bottom: 40px;"></div>
+        <p id="testimonial-empty" class="text-center" style="color: var(--brown);">No remarks yet — be the first to share your experience below!</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Share Your Stay</h2>
+          <p>Tell future tenants what it's been like living at Lilic's Apartment.</p>
+        </div>
+        <form class="contact-form" id="testimonial-form" style="max-width: 640px; margin: 0 auto;">
+          <div class="form-row">
+            <div class="field">
+              <label for="t-name">Your Name</label>
+              <input type="text" id="t-name" name="name" placeholder="Jane Doe" required>
+            </div>
+            <div class="field">
+              <label for="t-unit">Unit Type</label>
+              <select id="t-unit" name="unit">
+                <option>Studio</option>
+                <option>1 Bedroom</option>
+                <option>2 Bedroom (w/o Balcony)</option>
+                <option>2 Bedroom (with Balcony)</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="t-rating">Rating</label>
+            <select id="t-rating" name="rating">
+              <option value="5">★★★★★ Excellent</option>
+              <option value="4">★★★★☆ Great</option>
+              <option value="3">★★★☆☆ Good</option>
+              <option value="2">★★☆☆☆ Fair</option>
+              <option value="1">★☆☆☆☆ Poor</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="t-message">Your Remarks</label>
+            <textarea id="t-message" name="message" placeholder="Tell us about your stay..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit Your Remarks</button>
+          <p class="form-note" id="testimonial-note"></p>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta-banner">
+        <h2>Thinking about moving in?</h2>
+        <p>Browse our available units or reach out to schedule a tour.</p>
+        <a href="rentals.html" class="btn btn-outline">View Rentals</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span class="brand-mark">L</span>
+            Lilic's Apartment
+          </div>
+          <p>Cozy, well-appointed rentals in a prime location, managed by people who care.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="rentals.html">Rentals</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>Johnny Ang Subdivision, General Santos City, South Cotabato</li>
+            <li>(555) 123-4567</li>
+            <li>hello@lilicsapartment.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Lilic's Apartment. All rights reserved.</span>
+        <span>Made with care for our residents.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
